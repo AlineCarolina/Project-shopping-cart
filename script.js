@@ -96,24 +96,19 @@ function createCartItemElement({ sku, name, salePrice }) {
   ol.appendChild(li);
   funcLocalStorage();
   return li;
-}
-
-// Requisito 1
-const criaProdutos = async () => {
-  loading();
-  await fetch('https://api.mercadolibre.com/sites/MLB/search?q=computador')
-    .then((response) => response.json())
-    .then((result) => result.results)
-    .then((dados) => {
-      removeLoading();
-      const items = document.querySelector('.items');
-      dados.map(({ id: sku, title: name, thumbnail: image }) =>
-        items.appendChild(createProductItemElement({ sku, name, image })));
-    });
 };
 
-// Requisito 2
-const criaCarrinho = (id) => {
+// ------------------------------------------------------------------------------------
+
+async function sumPrices() {
+  const computers = [...document.querySelectorAll('li.cart__item')];
+  const getPrices = computers.reduce((acc, li) => Number(li.innerText.split('$')[1]) + acc, 0);
+  const totalPrice = document.querySelector('.total-price');
+  totalPrice.innerText = `Valor total: R$ ${getPrices}`;
+};
+
+// ------------------------------------------------------------------------------------
+
   fetch(`https://api.mercadolibre.com/items/${id}`)
     .then((response) => response.json())
     .then((object) => {

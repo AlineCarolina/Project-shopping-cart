@@ -6,15 +6,11 @@ function loading() {
 
 // ------------------------------------------------------------------------------------
 
+function removeLoading() {
   document.getElementsByClassName('loading')[0].remove();
 };
 
-function createProductImageElement(imageSource) {
-  const img = document.createElement('img');
-  img.className = 'item__image';
-  img.src = imageSource;
-  return img;
-}
+// ------------------------------------------------------------------------------------
 
 function createCustomElement(element, className, innerText) {
   const e = document.createElement(element);

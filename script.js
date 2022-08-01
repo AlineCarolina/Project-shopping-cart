@@ -126,9 +126,15 @@ function getSkuFromProductItem(item) {
 
 // ------------------------------------------------------------------------------------
 
+function reloadLocalStorage() {
+  const itemsCar = '.cart__items';
+  const cartItems = document.querySelector(itemsCar);
+  cartItems.innerHTML = localStorage.getItem('listaCarrinho');
+  funcLocalStorage(); 
+};
 
-// Requisito 6
-const btnLImpar = () => {
+// ------------------------------------------------------------------------------------
+
   const ol = document.querySelector(itemsCar);
   const clearButton = document.querySelector('.empty-cart');
   clearButton.addEventListener('click', () => {

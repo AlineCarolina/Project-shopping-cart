@@ -80,9 +80,21 @@ function cartItemClickListener(event) {
 // ------------------------------------------------------------------------------------
 
 function funcLocalStorage() {
-  const itemsCar = '.cart__items';
-  const cartItems = document.querySelector(itemsCar);
+  const cartItems = document.querySelector('.cart__items');
   localStorage.setItem('listaCarrinho', cartItems.innerHTML);
+  const price = document.querySelector('.total-price');
+  localStorage.setItem('preço', price.innerHTML);
+};
+
+// ------------------------------------------------------------------------------------
+
+
+function reloadLocalStorage() {
+  const cartItems = document.querySelector('.cart__items');
+  cartItems.innerHTML = localStorage.getItem('listaCarrinho');
+  const cartPrice = document.querySelector('.total-price');
+  cartPrice.innerHTML = localStorage.getItem('preço');
+  funcLocalStorage(); 
 };
 
 // ------------------------------------------------------------------------------------
@@ -105,6 +117,7 @@ async function sumPrices() {
   const getPrices = computers.reduce((acc, li) => Number(li.innerText.split('$')[1]) + acc, 0);
   const totalPrice = document.querySelector('.total-price');
   totalPrice.innerText = `Valor total: R$ ${getPrices}`;
+  funcLocalStorage();
 };
 
 // ------------------------------------------------------------------------------------
@@ -126,21 +139,14 @@ function getSkuFromProductItem(item) {
 
 // ------------------------------------------------------------------------------------
 
-function reloadLocalStorage() {
-  const itemsCar = '.cart__items';
-  const cartItems = document.querySelector(itemsCar);
-  cartItems.innerHTML = localStorage.getItem('listaCarrinho');
-  funcLocalStorage(); 
-};
-
-// ------------------------------------------------------------------------------------
-
 function clearButton() {
-  const itemsCar = '.cart__items';
-  const ol = document.querySelector(itemsCar);
+  const ol = document.querySelector('.cart__items');
+  const price = document.querySelector('.total-price');
   const clearButton = document.querySelector('.empty-cart');
   clearButton.addEventListener('click', () => {
     ol.innerHTML = '';
+    price.innerHTML = 'Valor total: R$ 0'
+    localStorage.clear();
   });  
 };
 

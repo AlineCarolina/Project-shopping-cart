@@ -1,5 +1,6 @@
 # Project Shopping Cart 🛒​
 Single Page Application of a shopping cart.
+![image](/images/Captura%20de%20tela%20de%202022-08-01%2017-23-49.png)
 
 ---
 

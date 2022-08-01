@@ -57,10 +57,16 @@ async function getProducts() {
     });
 };
 
-// Requisito 4
-const funcLocalStorage = () => {
-  const cartItems = document.querySelector(itemsCar);
-  localStorage.setItem('listaCarrinho', cartItems.innerHTML);
+// ------------------------------------------------------------------------------------
+
+function cartButton() {
+  const buttons = document.querySelectorAll('.item__add'); 
+  buttons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const id = event.target.parentElement.firstChild.innerText;
+      return createCart(id);
+    });
+  });
 };
 
 const reloadLocalStorage = () => {

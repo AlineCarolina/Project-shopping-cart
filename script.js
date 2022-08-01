@@ -109,22 +109,17 @@ async function sumPrices() {
 
 // ------------------------------------------------------------------------------------
 
+function createCart(id) {
   fetch(`https://api.mercadolibre.com/items/${id}`)
     .then((response) => response.json())
     .then((object) => {
       createCartItemElement({ sku: object.id, name: object.title, salePrice: object.price });
-      // somaProdutos({ price: object.price });
+      sumPrices();
   });
 };
 
-const btnCarrinho = () => {
-  const buttons = document.querySelectorAll('.item__add'); 
-  buttons.forEach((button) => {
-    button.addEventListener('click', (event) => {
-      const id = event.target.parentElement.firstChild.innerText;
-      return criaCarrinho(id);
-    });
-  });
+// ------------------------------------------------------------------------------------
+
 };
 
 // // Requisito 5

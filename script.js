@@ -120,17 +120,12 @@ function createCart(id) {
 
 // ------------------------------------------------------------------------------------
 
+function getSkuFromProductItem(item) {
+  return item.querySelector('span.item__sku').innerText;
 };
 
-// // Requisito 5
-// const somaProdutos = ({ price }) => {
-//   const cartItems  = document.querySelector(itemsCar);
-//   const priceItems = document.createElement('section');
-//   priceItems.className = 'total-price';
-//   const soma = price + price;
-//   priceItems.innerText = `Preço Total: R$${soma}`;
-//   cartItems.appendChild(priceItems);
-// };
+// ------------------------------------------------------------------------------------
+
 
 // Requisito 6
 const btnLImpar = () => {

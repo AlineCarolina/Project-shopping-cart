@@ -17,6 +17,10 @@ function createCustomElement(element, className, innerText) {
   e.className = className;
   e.innerText = innerText;
   return e;
+};
+
+// ------------------------------------------------------------------------------------
+
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
   img.className = 'item__image';
@@ -38,11 +42,20 @@ function createProductItemElement({ sku, name, image }) {
   return section;
 };
 
-function getSkuFromProductItem(item) {
-  return item.querySelector('span.item__sku').innerText;
-}
+// ------------------------------------------------------------------------------------
 
-const itemsCar = '.cart__items';
+async function getProducts() {
+  loading();
+  await fetch('https://api.mercadolibre.com/sites/MLB/search?q=computador')
+    .then((response) => response.json())
+    .then((result) => result.results)
+    .then((dados) => {
+      removeLoading();
+      const items = document.querySelector('.items');
+      dados.map(({ id: sku, title: name, thumbnail: image }) =>
+        items.appendChild(createProductItemElement({ sku, name, image })));
+    });
+};
 
 // Requisito 4
 const funcLocalStorage = () => {

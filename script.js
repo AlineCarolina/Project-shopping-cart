@@ -1,11 +1,11 @@
-// Requisito 7
-const loading = () => {
+function loading() {
   const txt = document.querySelector('.loading');
   txt.innerText = 'Loading...';
   document.body.appendChild(txt);
 };
 
-const removeLoading = () => {
+// ------------------------------------------------------------------------------------
+
   document.getElementsByClassName('loading')[0].remove();
 };
 

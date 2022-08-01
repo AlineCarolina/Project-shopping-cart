@@ -77,12 +77,15 @@ function cartItemClickListener(event) {
   sumPrices();
 };
 
-// Requisito 3
-function cartItemClickListener(event) {
+// ------------------------------------------------------------------------------------
+
+function funcLocalStorage() {
+  const itemsCar = '.cart__items';
   const cartItems = document.querySelector(itemsCar);
-  cartItems.removeChild(event.target);
-  funcLocalStorage();
-}
+  localStorage.setItem('listaCarrinho', cartItems.innerHTML);
+};
+
+// ------------------------------------------------------------------------------------
 
 function createCartItemElement({ sku, name, salePrice }) {
   const ol = document.querySelector('.cart__items');

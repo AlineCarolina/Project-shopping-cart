@@ -73,7 +73,7 @@ function cartButton() {
 
 function cartItemClickListener(event) {
   event.target.remove();
-  funcLocalStorage(); 
+  funcLocalStorage();
   sumPrices();
 };
 

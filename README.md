@@ -1,12 +1,17 @@
-# Project Shopping Cart
+# Project Shopping Cart 🛒​
+Single Page Application of a shopping cart.
 
 ---
 
 ## About the project
+In this project, a dynamic shopping cart was developed consuming data directly from the Mercado Livre API! Each item added to cart is saved in local storage.
 
 ---
 
 ## Technologies used
+  * HTML
+  * CSS
+  * JavaScript
 
 ---
 

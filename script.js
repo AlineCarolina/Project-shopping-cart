@@ -135,6 +135,8 @@ function reloadLocalStorage() {
 
 // ------------------------------------------------------------------------------------
 
+function clearButton() {
+  const itemsCar = '.cart__items';
   const ol = document.querySelector(itemsCar);
   const clearButton = document.querySelector('.empty-cart');
   clearButton.addEventListener('click', () => {
@@ -142,9 +144,11 @@ function reloadLocalStorage() {
   });  
 };
 
+// ------------------------------------------------------------------------------------
+
 window.onload = async () => {
-  await criaProdutos();
-  await btnCarrinho();
+  await getProducts();
+  await cartButton();
   await reloadLocalStorage();
-  await btnLImpar();
+  await clearButton();
 };

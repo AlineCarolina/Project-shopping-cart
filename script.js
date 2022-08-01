@@ -69,10 +69,12 @@ function cartButton() {
   });
 };
 
-const reloadLocalStorage = () => {
-  const cartItems = document.querySelector(itemsCar);
-  cartItems.innerHTML = localStorage.getItem('listaCarrinho');
+// ------------------------------------------------------------------------------------
+
+function cartItemClickListener(event) {
+  event.target.remove();
   funcLocalStorage(); 
+  sumPrices();
 };
 
 // Requisito 3
